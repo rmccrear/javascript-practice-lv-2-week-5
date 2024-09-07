@@ -97,7 +97,6 @@ async function getEeveeData(){
   let data = await result.json();
   let name = data.name;
   console.log("Name: " + name);
-  let abilities = data.abilities;
   let abilityNames = "";
   for(let i=0; i<abilities.length; i++) {
     abilityNames += data.abilities[i].ability.name + ", ";
