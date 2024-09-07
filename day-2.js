@@ -47,7 +47,14 @@ getCharmanderData();
 // Log Squirtle's name and base experience to the console.
 
 // TODO: Write your function here to fetch and log Squirtle's name and base experience
-
+async function getSquirtleData() {
+  const url = 'https://pokeapi.co/api/v2/pokemon/7';
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log("Name: " + data.name);
+  console.log("Base Exp: " + data.base_experience);
+}
+getSquirtleData();
 
 // EXERCISE 2: Fetch and Log the Name and Types of Pikachu
 
@@ -83,6 +90,22 @@ getCharmanderData();
 // Log Eevee's name and abilities to the console. (Hint: `data.abilities` is an array. Log each ability separately.)
 
 // TODO: Write your function here to fetch and log Eevee's name and abilities
+
+async function getEeveeData(){
+  let url = "https://pokeapi.co/api/v2/pokemon/133";
+  let result = await fetch(url);
+  let data = await result.json();
+  let name = data.name;
+  console.log("Name: " + name);
+  let abilities = data.abilities;
+  let abilityNames = "";
+  for(let i=0; i<abilities.length; i++) {
+    abilityNames += data.abilities[i].ability.name + ", ";
+  }
+  console.log(abilityNames);
+}
+
+getEeveeData();
 
 
 // Summary:
